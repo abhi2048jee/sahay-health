@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAHAY — Executive Presentation & Project Overview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F6F5; --surface:#FFFFFF; --ink:#12261F; --ink-soft:#4B5D56;
+    --primary:#1F6F5C; --primary-dark:#154B3E; --accent:#E8912D; --accent-soft:#FCEBD3;
+    --danger:#C4432B; --line:#DCE3DF;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0E1712; --surface:#16221C; --ink:#EDF3F0; --ink-soft:#9FB3AB; --line:#28372F; --accent-soft:#3A2C16;
+    }
+  }
+  :root[data-theme="dark"]{ --bg:#0E1712; --surface:#16221C; --ink:#EDF3F0; --ink-soft:#9FB3AB; --line:#28372F; --accent-soft:#3A2C16; }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; line-height:1.6;
+  }
+  .page{max-width:820px; margin:0 auto; padding:64px 32px 100px;}
+  .masthead{border-bottom:3px solid var(--ink); padding-bottom:26px; margin-bottom:40px;}
+  .eyebrow{display:flex; align-items:center; gap:10px; margin-bottom:20px;}
+  .mark{width:30px;height:30px;border-radius:8px;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:700;font-size:14px;}
+  .doctype{font-size:12.5px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft);}
+  h1.doc-title{font-family:'Fraunces',serif; font-weight:500; font-size:clamp(30px,4vw,42px); margin:0 0 10px; line-height:1.1;}
+  .doc-sub{font-size:16px; color:var(--ink-soft); margin:0;}
+  .meta-row{display:flex; gap:24px; margin-top:20px; font-size:12.5px; color:var(--ink-soft); flex-wrap:wrap;}
+  .meta-row b{color:var(--ink);}
+
+  section{margin-bottom:44px;}
+  .sec-num{
+    display:inline-flex; align-items:center; gap:8px; font-size:12.5px; font-weight:700;
+    color:var(--primary); letter-spacing:0.03em; text-transform:uppercase; margin-bottom:10px;
+  }
+  h2{font-family:'Fraunces',serif; font-weight:500; font-size:25px; margin:0 0 16px;}
+  p{font-size:15px; color:var(--ink); margin:0 0 14px;}
+  p.lede{font-size:17px; color:var(--ink-soft);}
+
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:16px; padding:22px 24px; margin-bottom:14px;}
+  .card h3{margin:0 0 8px; font-size:15.5px; font-weight:700; display:flex; align-items:center; gap:9px;}
+  .card p{margin:0; font-size:14.5px; color:var(--ink-soft);}
+  .card .icon{font-size:17px;}
+
+  .safeguard{
+    border:1px solid var(--danger); background:rgba(196,67,43,0.06); border-radius:14px;
+    padding:16px 20px; font-size:14px; margin:14px 0 0;
+  }
+  .safeguard b{color:var(--danger);}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:640px){ .grid2{grid-template-columns:1fr;} }
+
+  .asset-row{display:flex; gap:16px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line);}
+  .asset-row:last-child{border-bottom:none;}
+  .asset-check{width:22px;height:22px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;margin-top:2px;}
+  .asset-row b{display:block; font-size:15px; margin-bottom:3px;}
+  .asset-row span{font-size:13.5px; color:var(--ink-soft);}
+
+  .cta-block{
+    background:var(--ink); color:var(--bg); border-radius:18px; padding:34px 30px; margin-top:8px;
+  }
+  .cta-block h2{color:#fff; margin-bottom:12px;}
+  .cta-block p{color:#C9D6D0; font-size:15px;}
+  .cta-list{display:flex; flex-direction:column; gap:10px; margin-top:18px;}
+  .cta-item{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; color:#DCE9E3;}
+  .cta-item .dot{width:6px;height:6px;border-radius:50%;background:var(--accent); margin-top:8px; flex-shrink:0;}
+
+  .contact-strip{
+    margin-top:20px; padding-top:18px; border-top:1px solid rgba(255,255,255,0.15); font-size:13.5px; color:#B9CBC3;
+  }
+
+  footer.page-footer{max-width:820px; margin:0 auto; padding:0 32px 60px; font-size:12px; color:var(--ink-soft); text-align:center;}
+
+  @media print{
+    body{background:#fff;}
+    .page{padding:0 8mm;}
+    section{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="masthead">
+    <div class="eyebrow">
+      <div class="mark">S</div>
+      <span class="doctype">Executive Presentation &amp; Project Overview</span>
+    </div>
+    <h1 class="doc-title">SAHAY — Healthcare, Wherever You Are</h1>
+    <p class="doc-sub">An AI-guided rural healthcare navigation &amp; triage concept, built for low-end phones and multilingual users across India.</p>
+    <div class="meta-row">
+      <span><b>Status:</b> Concept + functional prototype complete</span>
+      <span><b>Stage:</b> Available for handoff, incubation, or acquisition</span>
+      <span><b>Built by:</b> Independent developer/creator</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-num">01 · Executive Summary</div>
+    <h2>The core value proposition</h2>
+    <p class="lede">SAHAY is a lightweight, AI-guided health platform that gives anyone with a basic phone — not just a smartphone — a way to describe what's wrong, understand how urgent it is, and get routed to the nearest facility actually equipped to help them, in their own language. It closes the gap between the first moment someone realizes something is wrong and the moment a qualified professional takes over, without ever pretending to be that professional itself. The frontend architecture, localization logic, and full user journey have already been designed and built — what's needed now is a partner to take it from validated prototype to deployed product.</p>
+  </section>
+
+  <section>
+    <div class="sec-num">02 · The Problem Space</div>
+    <h2>Why rural healthcare access currently fails</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3><span class="icon">🌍</span> Geography</h3>
+        <p>The nearest qualified facility is often far away, and the "nearest hospital" on a map isn't always the fastest one to actually reach.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">📱</span> Phone type</h3>
+        <p>Most health tech assumes a smartphone and fast 4G/5G — an assumption that excludes exactly the population that needs this most.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🗣️</span> Language</h3>
+        <p>Medical terminology and English-only interfaces shut out huge portions of the population from getting clear, actionable guidance.</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">⏱️</span> Time-to-triage</h3>
+        <p>Without a fast way to gauge urgency, people either delay seeking help or overwhelm facilities that weren't the right fit in the first place.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">03 · Solution Architecture</div>
+    <h2>How it works</h2>
+
+    <div class="card">
+      <h3><span class="icon">🩺</span> AI Health Assistant &amp; Triage</h3>
+      <p>A conversational voice/text interface that lets users describe symptoms in plain language. The AI evaluates urgency, flags warning signs, and guides the person toward the right level of professional care.</p>
+      <div class="safeguard"><b>Ethical guardrail:</b> Triage only — SAHAY never diagnoses conditions or prescribes medicine. Every path explicitly ends by connecting the user to a qualified professional.</div>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">📶</span> Low-End Phone &amp; 2G/USSD Accessibility</h3>
+      <p>Runs on basic, affordable feature phones via lightweight web views or USSD modes — zero app-store requirement, no heavy data packages needed.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">🌐</span> Dynamic Multilingual Interface</h3>
+      <p>Built-in language switching across Hindi, Bengali, Tamil, Telugu, and English, by voice or text — designed to extend to further regional languages.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">🗺️</span> Smart Navigation</h3>
+      <p>Calculates the fastest practical route rather than the closest point on a map — accounting for real-world conditions like seasonal road blocks or facility specialization, so patients reach somewhere actually equipped to help.</p>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">🚨</span> Emergency SOS &amp; Clinician Handoff</h3>
+      <p>High-visibility emergency triggers with instant location sharing, paired with a clean digital intake summary so doctors understand symptoms and urgency the moment the patient arrives.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">04 · What Has Been Built</div>
+    <h2>The assets</h2>
+    <div class="asset-row">
+      <div class="asset-check">✓</div>
+      <div><b>Fully interactive mobile prototype</b><span>A working HTML/CSS/JS frontend with a live triage chat, multilingual UI switching, mock smart-navigation map, emergency SOS flow, and a patient/doctor summary view — not static mockups.</span></div>
+    </div>
+    <div class="asset-row">
+      <div class="asset-check">✓</div>
+      <div><b>Complete 7-slide pitch deck</b><span>A polished, presentation-ready deck covering the problem, vision, all five core features, and execution status — built as a navigable interactive experience.</span></div>
+    </div>
+    <div class="asset-row">
+      <div class="asset-check">✓</div>
+      <div><b>Defined user journeys &amp; localization logic</b><span>The end-to-end flow from symptom entry to clinician handoff is mapped and functioning, with the language and low-bandwidth logic already architected in.</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="cta-block">
+      <h2>05 · Partnership &amp; Acquisition Intent</h2>
+      <p>The concept, UI/UX flows, and functional frontend are fully realized — the heavy lifting of frontend architecture, localization logic, and user-journey design is already done. This is ready for handoff, incubation, or strategic collaboration with a team positioned to take it into clinical validation and deployment.</p>
+      <div class="cta-list">
+        <div class="cta-item"><div class="dot"></div><span>Open to acquisition of the concept, design assets, and codebase.</span></div>
+        <div class="cta-item"><div class="dot"></div><span>Open to incubation under an existing health-tech team or accelerator.</span></div>
+        <div class="cta-item"><div class="dot"></div><span>Open to a founding or advisory collaboration to continue building this together.</span></div>
+      </div>
+      <div class="contact-strip">Interested founders, investors, or health-tech teams: reach out to discuss next steps and a live walkthrough of the prototype.</div>
+    </div>
+  </section>
+
+</div>
+<footer class="page-footer">SAHAY — Executive Presentation &amp; Project Overview · Prepared for prospective partners and acquirers.</footer>
+</body>
+</html>
