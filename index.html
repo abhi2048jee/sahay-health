@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHAY — Healthcare, Wherever You Are</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F3F6F5;
+            --surface: #FFFFFF;
+            --ink: #12261F;
+            --ink-soft: #4B5D56;
+            --primary: #1F6F5C;
+            --primary-dark: #154B3E;
+            --accent: #E8912D;
+            --accent-soft: #FCEBD3;
+            --danger: #C4432B;
+            --danger-soft: #F8DFD8;
+            --line: #DCE3DF;
+            --radius: 18px;
+        }
+
+        :root:not([data-theme="light"]) {
+            @media (prefers-color-scheme: dark) {
+                --bg: #0E1712;
+                --surface: #16221C;
+                --ink: #EDF3F0;
+                --ink-soft: #9FB3AB;
+                --line: #28372F;
+                --accent-soft: #3A2C16;
+                --danger-soft: #3A211C;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #0E1712;
+            --surface: #16221C;
+            --ink: #EDF3F0;
+            --ink-soft: #9FB3AB;
+            --line: #28372F;
+            --accent-soft: #3A2C16;
+            --danger-soft: #3A211C;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        .lite img,
+        .lite .photo-panel {
+            filter: grayscale(0.15) contrast(0.95);
+        }
+
+        .lite .decor {
+            display: none !important;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 48px 28px 80px;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        @media (max-width:920px) {
+            .wrap {
+                grid-template-columns: 1fr;
+                padding: 28px 18px 56px;
+                gap: 36px;
+            }
+        }
+
+        /* ---- Left: pitch column ---- */
+        .eyebrow-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            font-family: 'Fraunces', serif;
+        }
+
+        .brandline {
+            font-size: 14px;
+            color: var(--ink-soft);
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+
+        h1.hero {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: clamp(34px, 4.4vw, 52px);
+            line-height: 1.05;
+            margin: 0 0 14px;
+            letter-spacing: -0.01em;
+        }
+
+        h1.hero em {
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        .tagline {
+            font-size: 18px;
+            color: var(--ink-soft);
+            max-width: 46ch;
+            line-height: 1.55;
+            margin: 0 0 30px;
+        }
+
+        .why-block {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 22px 24px;
+            margin-bottom: 18px;
+        }
+
+        .why-block h3 {
+            margin: 0 0 8px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .why-block p {
+            margin: 0;
+            color: var(--ink-soft);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 14px;
+            margin-top: 26px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px 18px;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .stat b {
+            display: block;
+            font-family: 'Fraunces', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .stat span {
+            font-size: 12.5px;
+            color: var(--ink-soft);
+        }
+
+        .journey {
+            margin-top: 34px;
+        }
+
+        .journey h4 {
+            font-size: 13px;
+            text-transform: none;
+            color: var(--ink-soft);
+            font-weight: 600;
+            margin: 0 0 14px;
+        }
+
+        .journey-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .jstep {
+            display: flex;
+            gap: 14px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .jstep:last-child {
+            padding-bottom: 0;
+        }
+
+        .jdot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            margin-top: 6px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .jstep:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            left: 4.5px;
+            top: 16px;
+            bottom: 0;
+            width: 1px;
+            background: var(--line);
+        }
+
+        .jtext b {
+            display: block;
+            font-size: 14.5px;
+        }
+
+        .jtext span {
+            font-size: 13.5px;
+            color: var(--ink-soft);
+        }
+
+        .disclaimer {
+            margin-top: 30px;
+            font-size: 12.5px;
+            color: var(--ink-soft);
+            border-top: 1px solid var(--line);
+            padding-top: 16px;
+            line-height: 1.6;
+        }
+
+        /* ---- Right: phone ---- */
+        .phone-col {
+            position: sticky;
+            top: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .toolbar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            width: 100%;
+            max-width: 360px;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .seg {
+            display: flex;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .seg button {
+            border: none;
+            background: transparent;
+            font-family: inherit;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 6px 10px;
+            border-radius: 7px;
+            cursor: pointer;
+            color: var(--ink-soft);
+        }
+
+        .seg button.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .lite-toggle {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 6px 10px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--ink-soft);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .lite-toggle input {
+            accent-color: var(--primary);
+            width: 14px;
+            height: 14px;
+        }
+
+        .phone {
+            width: 360px;
+            max-width: 100%;
+            height: 720px;
+            background: var(--ink);
+            border-radius: 38px;
+            padding: 12px;
+            box-shadow: 0 30px 60px -20px rgba(18, 38, 31, 0.35);
+        }
+
+        .screen {
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+            border-radius: 28px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .statusbar {
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: var(--ink-soft);
+            flex-shrink: 0;
+        }
+
+        .app-header {
+            padding: 6px 20px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .app-header .who {
+            font-size: 12.5px;
+            color: var(--ink-soft);
+        }
+
+        .app-header .who b {
+            color: var(--ink);
+            font-weight: 700;
+        }
+
+        .sos-btn {
+            background: var(--danger);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 12px;
+            padding: 8px 12px;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+        }
+
+        .view {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 20px 20px;
+        }
+
+        .view::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .tile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .tile {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px 12px;
+            cursor: pointer;
+            transition: border-color .15s;
+        }
+
+        .tile:hover {
+            border-color: var(--primary);
+        }
+
+        .tile .ic {
+            font-size: 20px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .tile b {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 2px;
+        }
+
+        .tile span {
+            font-size: 11.5px;
+            color: var(--ink-soft);
+            line-height: 1.35;
+            display: block;
+        }
+
+        h2.viewtitle {
+            font-family: 'Fraunces', serif;
+            font-weight: 500;
+            font-size: 22px;
+            margin: 4px 0 4px;
+        }
+
+        p.viewsub {
+            font-size: 13px;
+            color: var(--ink-soft);
+            margin: 0 0 16px;
+        }
+
+        .pill {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 20px;
+        }
+
+        .pill.low {
+            background: #DCEFE6;
+            color: var(--primary-dark);
+        }
+
+        .pill.mid {
+            background: var(--accent-soft);
+            color: #8A5A16;
+        }
+
+        .pill.high {
+            background: var(--danger-soft);
+            color: var(--danger);
+        }
+
+        /* chat */
+        .chat-log {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .msg {
+            max-width: 82%;
+            padding: 10px 13px;
+            border-radius: 14px;
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+
+        .msg.bot {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .msg.me {
+            background: var(--primary);
+            color: #fff;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .msg.triage {
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            border: 1px solid var(--line);
+        }
+
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .chip {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 12px;
+            cursor: pointer;
+            color: var(--ink-soft);
+        }
+
+        .chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .composer {
+            display: flex;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--surface);
+            border-top: 1px solid var(--line);
+            flex-shrink: 0;
+        }
+
+        .composer input {
+            flex: 1;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 10px 14px;
+            font-size: 13.5px;
+            font-family: inherit;
+            background: var(--bg);
+            color: var(--ink);
+        }
+
+        .composer input:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 1px;
+        }
+
+        .round-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            font-size: 15px;
+        }
+
+        .round-btn.listening {
+            background: var(--danger);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(196, 67, 43, .5);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(196, 67, 43, 0);
+            }
+        }
+
+        /* map */
+        .map-box {
+            height: 230px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #DCEFE6, #EAF3ED);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 12px;
+            border: 1px solid var(--line);
+        }
+
+        .map-box svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .route-toggle {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .route-toggle button {
+            flex: 1;
+            padding: 8px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--ink-soft);
+        }
+
+        .route-toggle button.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .fac {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .fac:last-child {
+            border-bottom: none;
+        }
+
+        .fac b {
+            font-size: 13.5px;
+            display: block;
+        }
+
+        .fac span {
+            font-size: 12px;
+            color: var(--ink-soft);
+        }
+
+        .fac button {
+            background: var(--accent-soft);
+            color: #8A5A16;
+            border: none;
+            border-radius: 9px;
+            padding: 7px 11px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* doctor view */
+        .switch-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .switch-row button {
+            flex: 1;
+            padding: 9px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            background: var(--surface);
+            font-size: 12.5px;
+            font-weight: 700;
+            cursor: pointer;
+            color: var(--ink-soft);
+        }
+
+        .switch-row button.active {
+            background: var(--ink);
+            color: var(--bg);
+            border-color: var(--ink);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--line);
+            font-size: 13px;
+        }
+
+        .summary-row span:first-child {
+            color: var(--ink-soft);
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+        }
+
+        /* bottom nav */
+        .navbar {
+            display: flex;
+            border-top: 1px solid var(--line);
+            background: var(--surface);
+            flex-shrink: 0;
+        }
+
+        .navbtn {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding: 10px 4px 9px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            cursor: pointer;
+            color: var(--ink-soft);
+            font-family: inherit;
+        }
+
+        .navbtn .ic {
+            font-size: 17px;
+        }
+
+        .navbtn span {
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .navbtn.active {
+            color: var(--primary);
+        }
+
+        /* emergency full screen */
+        .emg {
+            position: absolute;
+            inset: 0;
+            background: var(--danger);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .emg h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+            margin: 14px 0 8px;
+        }
+
+        .emg p {
+            font-size: 13.5px;
+            opacity: 0.9;
+            margin: 0 0 26px;
+            line-height: 1.5;
+        }
+
+        .emg .call {
+            background: #fff;
+            color: var(--danger);
+            border: none;
+            border-radius: 14px;
+            padding: 16px 30px;
+            font-weight: 800;
+            font-size: 15px;
+            cursor: pointer;
+            margin-bottom: 12px;
+            width: 100%;
+        }
+
+        .emg .loc {
+            background: rgba(255, 255, 255, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            color: #fff;
+            border-radius: 14px;
+            padding: 13px;
+            font-size: 13px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .emg .close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        .emg .icon {
+            font-size: 44px;
+        }
+
+        footer.note {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 28px 40px;
+            font-size: 12px;
+            color: var(--ink-soft);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <!-- LEFT: pitch -->
+        <div class="pitch">
+            <div class="eyebrow-row">
+                <div class="mark">S</div>
+                <div class="brandline">Fund My Crazy 2026 — Concept Prototype</div>
+            </div>
+            <h1 class="hero">Healthcare shouldn't depend<br>on <em>your pin code.</em></h1>
+            <p class="tagline">SAHAY is an AI health companion that runs on any phone — smart or basic — and helps
+                someone in a village reach the right professional help, in their own language, without needing to know
+                which hospital to call.</p>
+
+            <div class="why-block">
+                <h3>The problem</h3>
+                <p>In much of rural India, the nearest qualified help is far away, and the phone in someone's pocket is
+                    more likely to be a ₹1,500 keypad device than a smartphone with fast data. SAHAY is built for that
+                    phone first, not as an afterthought.</p>
+            </div>
+            <div class="why-block">
+                <h3>What it isn't</h3>
+                <p>Not a robot doctor. SAHAY never diagnoses or prescribes — it listens, flags urgency, and routes
+                    people to a real clinician faster than they'd otherwise get there.</p>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat"><b>3</b><span>steps from symptom to care</span></div>
+                <div class="stat"><b>2G</b><span>works on, not just Wi‑Fi</span></div>
+                <div class="stat"><b>12+</b><span>Indian languages supported</span></div>
+            </div>
+
+            <div class="journey">
+                <h4>How a visit unfolds</h4>
+                <div class="journey-steps">
+                    <div class="jstep">
+                        <div class="jdot"></div>
+                        <div class="jtext"><b>Describe what's wrong</b><span>Voice or text, in the language you speak at
+                                home.</span></div>
+                    </div>
+                    <div class="jstep">
+                        <div class="jdot"></div>
+                        <div class="jtext"><b>Get a plain-language read</b><span>SAHAY flags how urgent this looks —
+                                never a diagnosis.</span></div>
+                    </div>
+                    <div class="jstep">
+                        <div class="jdot"></div>
+                        <div class="jtext"><b>See the fastest real option</b><span>Not just "nearest" — the facility you
+                                can actually reach soonest.</span></div>
+                    </div>
+                    <div class="jstep">
+                        <div class="jdot"></div>
+                        <div class="jtext"><b>Hand off to a clinician</b><span>The doctor opens a short summary instead
+                                of starting from zero.</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="disclaimer">This build is an interactive demo of the concept for pitch purposes. The triage logic
+                here is a simple rule-based simulation, not a medical model — a real version would sit behind clinical
+                review before ever reaching a user.</p>
+        </div>
+
+        <!-- RIGHT: phone -->
+        <div class="phone-col">
+            <div class="toolbar">
+                <div class="seg" id="langSeg">
+                    <button data-lang="en" class="active">EN</button>
+                    <button data-lang="hi">हिं</button>
+                    <button data-lang="bn">বাং</button>
+                </div>
+                <label class="lite-toggle"><input type="checkbox" id="liteMode"> Low‑end mode</label>
+            </div>
+
+            <div class="phone">
+                <div class="screen" id="screen">
+                    <div class="statusbar" id="clock">9:41</div>
+
+                    <div class="app-header">
+                        <div class="who">Namaste, <b id="userName">Meera</b></div>
+                        <button class="sos-btn" id="sosBtn" data-i18n="sos">SOS</button>
+                    </div>
+
+                    <!-- HOME -->
+                    <div class="view" data-view="home">
+                        <h2 class="viewtitle" data-i18n="homeTitle">How can we help today?</h2>
+                        <p class="viewsub" data-i18n="homeSub">Choose one, or just start typing on the Assistant tab.
+                        </p>
+                        <div class="tile-grid">
+                            <div class="tile" data-goto="assistant">
+                                <span class="ic">🩺</span>
+                                <b data-i18n="tileAssistTitle">AI Health Assistant</b>
+                                <span data-i18n="tileAssistSub">Describe symptoms, get guidance</span>
+                            </div>
+                            <div class="tile" data-goto="navigate">
+                                <span class="ic">🗺️</span>
+                                <b data-i18n="tileNavTitle">Find Care Nearby</b>
+                                <span data-i18n="tileNavSub">Fastest real route, not just nearest</span>
+                            </div>
+                            <div class="tile" data-goto="connect">
+                                <span class="ic">👩‍⚕️</span>
+                                <b data-i18n="tileConnTitle">Talk to a Professional</b>
+                                <span data-i18n="tileConnSub">Doctor sees your summary first</span>
+                            </div>
+                            <div class="tile" id="emgTile">
+                                <span class="ic">🚨</span>
+                                <b data-i18n="tileEmgTitle">Emergency</b>
+                                <span data-i18n="tileEmgSub">One tap for urgent help</span>
+                            </div>
+                        </div>
+                        <div class="card" style="margin-top:14px;">
+                            <b style="font-size:13px;">📶 <span data-i18n="dataSaverTitle">Data saver is on</span></b>
+                            <p style="margin:6px 0 0; font-size:12px; color:var(--ink-soft);" data-i18n="dataSaverSub">
+                                Turn off "Low‑end mode" above to see the full experience.</p>
+                        </div>
+                    </div>
+
+                    <!-- ASSISTANT -->
+                    <div class="view" data-view="assistant" style="display:none; display:flex; flex-direction:column;">
+                        <h2 class="viewtitle" data-i18n="assistTitle">AI Health Assistant</h2>
+                        <p class="viewsub" data-i18n="assistSub">Not a diagnosis — a guide toward the right help.</p>
+                        <div class="chip-row" id="chipRow"></div>
+                        <div class="chat-log" id="chatLog"></div>
+                    </div>
+
+                    <!-- NAVIGATE -->
+                    <div class="view" data-view="navigate" style="display:none;">
+                        <h2 class="viewtitle" data-i18n="navTitle">Smart Healthcare Navigation</h2>
+                        <p class="viewsub" data-i18n="navSub">Fastest practical route beats "nearest on the map."</p>
+                        <div class="map-box">
+                            <svg viewBox="0 0 320 230">
+                                <path d="M0,60 L320,40 M0,140 L320,160 M60,0 L40,230 M200,0 L220,230" stroke="#BFDACF"
+                                    stroke-width="2" fill="none" opacity="0.6" />
+                                <circle cx="70" cy="120" r="9" fill="#1F6F5C" />
+                                <circle cx="70" cy="120" r="16" fill="none" stroke="#1F6F5C" stroke-width="2"
+                                    opacity="0.4" />
+                                <text x="86" y="124" font-size="11" fill="#12261F" font-family="Inter">You</text>
+                                <g id="mapMarkers"></g>
+                            </svg>
+                        </div>
+                        <div class="route-toggle">
+                            <button class="active" data-mode="fast" data-i18n="routeFast">Fastest route</button>
+                            <button data-mode="near" data-i18n="routeNear">Nearest only</button>
+                        </div>
+                        <div class="card" id="facList"></div>
+                    </div>
+
+                    <!-- CONNECT -->
+                    <div class="view" data-view="connect" style="display:none;">
+                        <h2 class="viewtitle" data-i18n="connTitle">Healthcare Professional Connection</h2>
+                        <p class="viewsub" data-i18n="connSub">See what each side actually sees.</p>
+                        <div class="switch-row">
+                            <button class="active" data-role="patient" data-i18n="rolePatient">Patient view</button>
+                            <button data-role="doctor" data-i18n="roleDoctor">Doctor view</button>
+                        </div>
+                        <div class="card" id="connectCard"></div>
+                    </div>
+
+                    <!-- EMERGENCY overlay -->
+                    <div class="emg" id="emgScreen" style="display:none;">
+                        <button class="close" id="emgClose">✕</button>
+                        <div class="icon">🚨</div>
+                        <h3 data-i18n="emgHeadline">Get urgent help now</h3>
+                        <p data-i18n="emgBody">This connects you to the nearest emergency line. Stay where you are if
+                            possible.</p>
+                        <a class="call" href="tel:108" data-i18n="emgCall">Call 108 — Ambulance</a>
+                        <button class="loc" id="shareLocBtn" data-i18n="emgShare">Share my location</button>
+                    </div>
+
+                    <div class="navbar">
+                        <button class="navbtn active" data-goto="home"><span class="ic">🏠</span><span
+                                data-i18n="navHome">Home</span></button>
+                        <button class="navbtn" data-goto="assistant"><span class="ic">💬</span><span
+                                data-i18n="navAssist">Assistant</span></button>
+                        <button class="navbtn" data-goto="navigate"><span class="ic">📍</span><span
+                                data-i18n="navNav">Navigate</span></button>
+                        <button class="navbtn" data-goto="connect"><span class="ic">👩‍⚕️</span><span
+                                data-i18n="navConn">Connect</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="note">Interactive concept prototype for the SAHAY "Fund My Crazy 2026" pitch. All data below is
+        simulated for demonstration.</footer>
+
+    <script>
+        /* ---------------- i18n ---------------- */
+        const I18N = {
+            en: {
+                sos: "SOS", homeTitle: "How can we help today?", homeSub: "Choose one, or just start typing on the Assistant tab.",
+                tileAssistTitle: "AI Health Assistant", tileAssistSub: "Describe symptoms, get guidance",
+                tileNavTitle: "Find Care Nearby", tileNavSub: "Fastest real route, not just nearest",
+                tileConnTitle: "Talk to a Professional", tileConnSub: "Doctor sees your summary first",
+                tileEmgTitle: "Emergency", tileEmgSub: "One tap for urgent help",
+                dataSaverTitle: "Data saver is on", dataSaverSub: 'Turn off "Low‑end mode" above to see the full experience.',
+                assistTitle: "AI Health Assistant", assistSub: "Not a diagnosis — a guide toward the right help.",
+                navTitle: "Smart Healthcare Navigation", navSub: 'Fastest practical route beats "nearest on the map."',
+                routeFast: "Fastest route", routeNear: "Nearest only",
+                connTitle: "Healthcare Professional Connection", connSub: "See what each side actually sees.",
+                rolePatient: "Patient view", roleDoctor: "Doctor view",
+                emgHeadline: "Get urgent help now", emgBody: "This connects you to the nearest emergency line. Stay where you are if possible.",
+                emgCall: "Call 108 — Ambulance", emgShare: "Share my location",
+                navHome: "Home", navAssist: "Assistant", navNav: "Navigate", navConn: "Connect",
+                greetBot: "Hi, I'm here to help. What's going on — you can type or use the mic?",
+                chips: ["Fever", "Chest pain", "Bad cough", "Stomach pain", "Injury / bleeding", "Pregnancy concern"],
+                inputPh: "Describe how you feel…",
+                fac: [{ name: "Primary Health Centre, Sonapur", dist: "2.1 km", fast: "9 min", near: "9 min" },
+                { name: "District Hospital, Barpeta", dist: "14 km", fast: "22 min", near: "41 min" },
+                { name: "Community Clinic, Rangia", dist: "6 km", fast: "31 min", near: "18 min" }],
+                facBtn: "Route", facBtnMap: { fast: "Fastest", near: "Directions" }
+            },
+            hi: {
+                sos: "एसओएस", homeTitle: "आज हम कैसे मदद कर सकते हैं?", homeSub: "एक चुनें, या असिस्टेंट टैब पर सीधे टाइप करें।",
+                tileAssistTitle: "एआई हेल्थ असिस्टेंट", tileAssistSub: "लक्षण बताएं, सलाह पाएं",
+                tileNavTitle: "पास में देखभाल खोजें", tileNavSub: "सबसे तेज़ असली रास्ता, सिर्फ सबसे नज़दीक नहीं",
+                tileConnTitle: "डॉक्टर से बात करें", tileConnSub: "डॉक्टर पहले आपका सारांश देखते हैं",
+                tileEmgTitle: "आपातकाल", tileEmgSub: "तुरंत मदद के लिए एक टैप",
+                dataSaverTitle: "डेटा सेवर चालू है", dataSaverSub: 'पूरा अनुभव देखने के लिए ऊपर "लो-एंड मोड" बंद करें।',
+                assistTitle: "एआई हेल्थ असिस्टेंट", assistSub: "यह निदान नहीं है — सही मदद तक पहुंचने का एक मार्गदर्शक है।",
+                navTitle: "स्मार्ट हेल्थकेयर नेविगेशन", navSub: 'सबसे तेज़ असली रास्ता — सिर्फ नक्शे पर "पास" से बेहतर।',
+                routeFast: "सबसे तेज़ रास्ता", routeNear: "सिर्फ नज़दीकी",
+                connTitle: "स्वास्थ्य पेशेवर से जुड़ाव", connSub: "देखें दोनों पक्ष असल में क्या देखते हैं।",
+                rolePatient: "मरीज़ का दृश्य", roleDoctor: "डॉक्टर का दृश्य",
+                emgHeadline: "अभी तुरंत मदद पाएं", emgBody: "यह आपको नज़दीकी आपातकालीन लाइन से जोड़ता है। जहां हैं वहीं रहें।",
+                emgCall: "108 पर कॉल करें — एम्बुलेंस", emgShare: "मेरी लोकेशन भेजें",
+                navHome: "होम", navAssist: "असिस्टेंट", navNav: "नेविगेट", navConn: "जुड़ें",
+                greetBot: "नमस्ते, मैं मदद के लिए यहां हूं। क्या हो रहा है — टाइप करें या माइक इस्तेमाल करें?",
+                chips: ["बुखार", "सीने में दर्द", "तेज़ खांसी", "पेट दर्द", "चोट / खून बहना", "गर्भावस्था संबंधी चिंता"],
+                inputPh: "आप कैसा महसूस कर रहे हैं बताएं…",
+                fac: [{ name: "प्राथमिक स्वास्थ्य केंद्र, सोनापुर", dist: "2.1 कि.मी.", fast: "9 मिनट", near: "9 मिनट" },
+                { name: "ज़िला अस्पताल, बारपेटा", dist: "14 कि.मी.", fast: "22 मिनट", near: "41 मिनट" },
+                { name: "सामुदायिक क्लिनिक, रंगिया", dist: "6 कि.मी.", fast: "31 मिनट", near: "18 मिनट" }],
+                facBtn: "रास्ता", facBtnMap: { fast: "सबसे तेज़", near: "दिशा" }
+            },
+            bn: {
+                sos: "এসওএস", homeTitle: "আজ কীভাবে সাহায্য করতে পারি?", homeSub: "একটি বেছে নিন, বা অ্যাসিস্ট্যান্ট ট্যাবে টাইপ শুরু করুন।",
+                tileAssistTitle: "এআই হেলথ অ্যাসিস্ট্যান্ট", tileAssistSub: "লক্ষণ বলুন, পরামর্শ পান",
+                tileNavTitle: "কাছাকাছি চিকিৎসা খুঁজুন", tileNavSub: "সবচেয়ে দ্রুত আসল পথ, শুধু নিকটতম নয়",
+                tileConnTitle: "পেশাদারের সাথে কথা বলুন", tileConnSub: "ডাক্তার আগে আপনার সারাংশ দেখেন",
+                tileEmgTitle: "জরুরি অবস্থা", tileEmgSub: "জরুরি সাহায্যের জন্য এক ট্যাপ",
+                dataSaverTitle: "ডেটা সেভার চালু আছে", dataSaverSub: 'সম্পূর্ণ অভিজ্ঞতা দেখতে উপরের "লো-এন্ড মোড" বন্ধ করুন।',
+                assistTitle: "এআই হেলথ অ্যাসিস্ট্যান্ট", assistSub: "এটি রোগনির্ণয় নয় — সঠিক সাহায্যের পথনির্দেশ।",
+                navTitle: "স্মার্ট হেলথকেয়ার নেভিগেশন", navSub: 'সবচেয়ে দ্রুত বাস্তব পথ — শুধু মানচিত্রে "কাছের" নয়।',
+                routeFast: "দ্রুততম পথ", routeNear: "শুধু নিকটতম",
+                connTitle: "স্বাস্থ্যসেবা পেশাদার সংযোগ", connSub: "দুই পক্ষ আসলে কী দেখে তা দেখুন।",
+                rolePatient: "রোগীর দৃশ্য", roleDoctor: "ডাক্তারের দৃশ্য",
+                emgHeadline: "এখনই জরুরি সাহায্য নিন", emgBody: "এটি আপনাকে নিকটতম জরুরি লাইনের সাথে সংযুক্ত করে। যেখানে আছেন সেখানেই থাকুন।",
+                emgCall: "১০৮ নম্বরে কল করুন — অ্যাম্বুলেন্স", emgShare: "আমার অবস্থান পাঠান",
+                navHome: "হোম", navAssist: "অ্যাসিস্ট্যান্ট", navNav: "নেভিগেট", navConn: "সংযোগ",
+                greetBot: "নমস্কার, আমি সাহায্যের জন্য এখানে আছি। কী হচ্ছে — টাইপ করুন বা মাইক ব্যবহার করুন?",
+                chips: ["জ্বর", "বুকে ব্যথা", "তীব্র কাশি", "পেট ব্যথা", "আঘাত / রক্তপাত", "গর্ভাবস্থা সংক্রান্ত উদ্বেগ"],
+                inputPh: "আপনি কেমন অনুভব করছেন লিখুন…",
+                fac: [{ name: "প্রাথমিক স্বাস্থ্য কেন্দ্র, সোনাপুর", dist: "২.১ কিমি", fast: "৯ মিনিট", near: "৯ মিনিট" },
+                { name: "জেলা হাসপাতাল, বারপেটা", dist: "১৪ কিমি", fast: "২২ মিনিট", near: "৪১ মিনিট" },
+                { name: "কমিউনিটি ক্লিনিক, রাঙ্গিয়া", dist: "৬ কিমি", fast: "৩১ মিনিট", near: "১৮ মিনিট" }],
+                facBtn: "রুট", facBtnMap: { fast: "দ্রুততম", near: "দিকনির্দেশ" }
+            }
+        };
+        let lang = 'en';
+        let routeMode = 'fast';
+        let role = 'patient';
+        const symptomLog = [];
+
+        function t(key) { return (I18N[lang] && I18N[lang][key]) || I18N.en[key]; }
+
+        function applyI18n() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.textContent = t(key);
+            });
+            renderChips();
+            renderFacilities();
+            renderConnect();
+        }
+
+        /* ---------------- language switch ---------------- */
+        document.getElementById('langSeg').addEventListener('click', e => {
+            const btn = e.target.closest('button'); if (!btn) return;
+            lang = btn.dataset.lang;
+            [...document.getElementById('langSeg').children].forEach(b => b.classList.toggle('active', b === btn));
+            applyI18n();
+            // re-greet in new language on first message only
+            if (chatLogEl.children.length <= 1) { chatLogEl.innerHTML = ''; addBotMsg(t('greetBot')); }
+        });
+
+        document.getElementById('liteMode').addEventListener('change', e => {
+            document.body.classList.toggle('lite', e.target.checked);
+        });
+
+        /* ---------------- nav ---------------- */
+        function goto(view) {
+            document.querySelectorAll('.view').forEach(v => {
+                v.style.display = (v.dataset.view === view) ? (view === 'assistant' ? 'flex' : 'block') : 'none';
+            });
+            document.querySelectorAll('.navbtn').forEach(b => b.classList.toggle('active', b.dataset.goto === view));
+        }
+        document.querySelectorAll('[data-goto]').forEach(el => {
+            el.addEventListener('click', () => goto(el.dataset.goto));
+        });
+
+        /* ---------------- emergency ---------------- */
+        const emgScreen = document.getElementById('emgScreen');
+        function openEmg() { emgScreen.style.display = 'flex'; }
+        document.getElementById('sosBtn').addEventListener('click', openEmg);
+        document.getElementById('emgTile').addEventListener('click', openEmg);
+        document.getElementById('emgClose').addEventListener('click', () => emgScreen.style.display = 'none');
+        document.getElementById('shareLocBtn').addEventListener('click', function () {
+            const original = this.textContent;
+            this.textContent = '…';
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    pos => { this.textContent = `📍 ${pos.coords.latitude.toFixed(3)}, ${pos.coords.longitude.toFixed(3)} — sent`; setTimeout(() => this.textContent = original, 2500); },
+                    () => { this.textContent = 'Location unavailable — share manually'; setTimeout(() => this.textContent = original, 2500); }
+                );
+            } else { this.textContent = 'Not supported here'; setTimeout(() => this.textContent = original, 2000); }
+        });
+
+        /* ---------------- clock ---------------- */
+        function tickClock() {
+            const d = new Date();
+            document.getElementById('clock').textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        }
+        tickClock(); setInterval(tickClock, 30000);
+
+        /* ---------------- chat / triage ---------------- */
+        const chatLogEl = document.getElementById('chatLog');
+        const RULES = [
+            {
+                words: ['chest pain', 'chest', 'breath', 'breathing', 'सीने', 'सांस', 'বুকে', 'শ্বাস'], level: 'high',
+                en: "Chest pain or breathing trouble can be serious. Please treat this as urgent — I'd suggest the Emergency tab now, and I'm flagging it for the nearest facility.",
+                hi: "सीने में दर्द या सांस लेने में तकलीफ गंभीर हो सकती है। कृपया इसे तुरंत आपातकाल मानें — अभी एसओएस टैब देखें।",
+                bn: "বুকে ব্যথা বা শ্বাসকষ্ট গুরুতর হতে পারে। এটিকে জরুরি হিসেবে নিন — এখনই এসওএস ট্যাব দেখুন।"
+            },
+            {
+                words: ['bleed', 'injury', 'accident', 'चोट', 'खून', 'আঘাত', 'রক্ত'], level: 'high',
+                en: "Bleeding or a serious injury needs prompt care. I'm marking this urgent — please open Emergency, or head to the nearest facility on the Navigate tab.",
+                hi: "रक्तस्राव या गंभीर चोट के लिए तुरंत देखभाल ज़रूरी है। मैं इसे तुरंत चिह्नित कर रहा हूं — कृपया एसओएस खोलें।",
+                bn: "রক্তপাত বা গুরুতর আঘাতের জন্য দ্রুত যত্ন প্রয়োজন। এটি জরুরি হিসেবে চিহ্নিত করছি — এসওএস খুলুন।"
+            },
+            {
+                words: ['pregnan', 'गर्भ', 'গর্ভ'], level: 'mid',
+                en: "Thanks for sharing that — pregnancy-related concerns are worth a professional check soon rather than waiting. I'll route you to the nearest facility with maternal care.",
+                hi: "धन्यवाद — गर्भावस्था से जुड़ी चिंता के लिए जल्द जांच करानी चाहिए। मैं आपको मातृत्व देखभाल वाली सुविधा तक भेज रहा हूं।",
+                bn: "ধন্যবাদ — গর্ভাবস্থা সংক্রান্ত উদ্বেগ শীঘ্রই পরীক্ষা করানো উচিত। মাতৃত্ব সেবাসহ সুবিধায় পাঠাচ্ছি।"
+            },
+            {
+                words: ['fever', 'बुखार', 'জ্বর'], level: 'mid',
+                en: "A fever on its own is usually manageable at home with rest and fluids, but if it's high, lasts more than 2 days, or comes with other symptoms, please see a professional. Want me to show nearby options?",
+                hi: "अकेले बुखार आमतौर पर आराम और तरल पदार्थों से घर पर संभाला जा सकता है, पर तेज़ या 2 दिन से ज़्यादा हो तो डॉक्टर से मिलें। क्या पास की सुविधाएं दिखाऊं?",
+                bn: "শুধু জ্বর সাধারণত বিশ্রাম ও তরলে সামলানো যায়, তবে বেশি হলে বা ২ দিনের বেশি থাকলে ডাক্তার দেখান। কাছাকাছি বিকল্প দেখাব?"
+            },
+            {
+                words: ['cough', 'खांसी', 'কাশি'], level: 'low',
+                en: "A cough is often manageable at home. Warm fluids and rest help. If it lasts over a week, brings up blood, or you get short of breath, please see a professional.",
+                hi: "खांसी अक्सर घर पर संभाली जा सकती है। गर्म तरल पदार्थ और आराम मदद करते हैं। एक हफ्ते से ज़्यादा हो या सांस फूले तो डॉक्टर से मिलें।",
+                bn: "কাশি প্রায়ই বাড়িতে সামলানো যায়। গরম তরল ও বিশ্রাম সাহায্য করে। এক সপ্তাহের বেশি হলে বা শ্বাসকষ্ট হলে ডাক্তার দেখান।"
+            },
+            {
+                words: ['stomach', 'pet', 'पेट', 'stomach pain', 'পেট'], level: 'low',
+                en: "Mild stomach pain often settles with rest and light food. If it's severe, doesn't ease, or comes with vomiting or fever, that's worth a professional visit.",
+                hi: "हल्का पेट दर्द अक्सर आराम और हल्के भोजन से ठीक हो जाता है। तेज़ हो या उल्टी/बुखार के साथ हो तो डॉक्टर से मिलें।",
+                bn: "হালকা পেট ব্যথা বিশ্রাম ও হালকা খাবারে কমে যায়। তীব্র হলে বা বমি/জ্বরসহ হলে ডাক্তার দেখান।"
+            }
+        ];
+        function classify(text) {
+            const lower = text.toLowerCase();
+            for (const r of RULES) { if (r.words.some(w => lower.includes(w))) return r; }
+            return null;
+        }
+        function addBotMsg(text) {
+            const d = document.createElement('div'); d.className = 'msg bot'; d.textContent = text;
+            chatLogEl.appendChild(d); chatLogEl.parentElement.scrollTop = chatLogEl.parentElement.scrollHeight;
+        }
+        function addMeMsg(text) {
+            const d = document.createElement('div'); d.className = 'msg me'; d.textContent = text;
+            chatLogEl.appendChild(d);
+        }
+        function addTriage(rule) {
+            const levelWord = rule.level === 'high' ? 'high' : rule.level === 'mid' ? 'mid' : 'low';
+            const pillLabel = { high: 'Urgent', mid: 'See a doctor soon', low: 'Home care likely' };
+            const d = document.createElement('div'); d.className = 'msg triage';
+            const p = document.createElement('span'); p.className = 'pill ' + levelWord; p.textContent = pillLabel[levelWord];
+            d.appendChild(p);
+            const body = document.createElement('div'); body.style.marginTop = '8px'; body.textContent = rule[lang] || rule.en;
+            d.appendChild(body);
+            chatLogEl.appendChild(d);
+            chatLogEl.parentElement.scrollTop = chatLogEl.parentElement.scrollHeight;
+        }
+        function handleUserText(text) {
+            if (!text.trim()) return;
+            addMeMsg(text);
+            symptomLog.push({ text, at: new Date() });
+            const rule = classify(text);
+            setTimeout(() => {
+                if (rule) { addTriage(rule); if (rule.level === 'high') { symptomLog[symptomLog.length - 1].urgency = 'high'; setTimeout(openEmg, 900); } else { symptomLog[symptomLog.length - 1].urgency = rule.level; } }
+                else {
+                    addBotMsg({
+                        en: "Thanks for telling me. Could you say a bit more — where does it hurt, and since when? You can also tap a suggestion below.",
+                        hi: "बताने के लिए धन्यवाद। थोड़ा और बताएं — कहां दर्द है, और कब से? नीचे सुझाव भी चुन सकते हैं।",
+                        bn: "বলার জন্য ধন্যবাদ। আরেকটু বলুন — কোথায় ব্যথা, আর কবে থেকে? নিচের পরামর্শও বেছে নিতে পারেন।"
+                    }[lang]);
+                }
+                renderConnect();
+            }, 500);
+        }
+        function renderChips() {
+            const row = document.getElementById('chipRow'); row.innerHTML = '';
+            t('chips').forEach(c => {
+                const el = document.createElement('div'); el.className = 'chip'; el.textContent = c;
+                el.addEventListener('click', () => handleUserText(c));
+                row.appendChild(el);
+            });
+        }
+        document.querySelector('.composer input') // placeholder, real one built below
+            ;
+        // build composer dynamically to keep it inside assistant view flow
+        (function initComposer() {
+            const assistView = document.querySelector('[data-view="assistant"]');
+            const composer = document.createElement('div'); composer.className = 'composer';
+            composer.innerHTML = `<input type="text" id="chatInput" placeholder="${t('inputPh')}">
+                         <button class="round-btn" id="micBtn">🎤</button>
+                         <button class="round-btn" id="sendBtn">➤</button>`;
+            assistView.after(composer);
+            document.getElementById('sendBtn').addEventListener('click', () => {
+                const inp = document.getElementById('chatInput'); handleUserText(inp.value); inp.value = '';
+            });
+            document.getElementById('chatInput').addEventListener('keydown', e => {
+                if (e.key === 'Enter') { handleUserText(e.target.value); e.target.value = ''; }
+            });
+            const micBtn = document.getElementById('micBtn');
+            const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+            micBtn.addEventListener('click', () => {
+                if (!SR) { addBotMsg("Voice input isn't available in this browser preview, but on a phone this would capture your voice directly."); return; }
+                const rec = new SR(); rec.lang = lang === 'hi' ? 'hi-IN' : lang === 'bn' ? 'bn-IN' : 'en-IN';
+                micBtn.classList.add('listening');
+                rec.onresult = e => { handleUserText(e.results[0][0].transcript); };
+                rec.onend = () => micBtn.classList.remove('listening');
+                rec.onerror = () => micBtn.classList.remove('listening');
+                try { rec.start(); } catch (err) { micBtn.classList.remove('listening'); }
+            });
+        })();
+
+        /* ---------------- navigate / map ---------------- */
+        const markerPos = [{ x: 200, y: 60 }, { x: 230, y: 170 }, { x: 110, y: 40 }];
+        function renderFacilities() {
+            const list = document.getElementById('facList'); list.innerHTML = '';
+            const facs = t('fac');
+            facs.forEach((f, i) => {
+                const row = document.createElement('div'); row.className = 'fac';
+                row.innerHTML = `<div><b>${f.name}</b><span>${f.dist} · ${routeMode === 'fast' ? f.fast : f.near}</span></div>
+                      <button data-i="${i}">${t('facBtnMap')[routeMode]}</button>`;
+                list.appendChild(row);
+            });
+            const svgMarkers = document.getElementById('mapMarkers'); svgMarkers.innerHTML = '';
+            markerPos.forEach((m, i) => {
+                svgMarkers.innerHTML += `<circle cx="${m.x}" cy="${m.y}" r="7" fill="${i === bestIndex() ? '#E8912D' : '#C4432B'}"/>`;
+            });
+        }
+        function bestIndex() {
+            const facs = t('fac'); let best = 0, bestVal = Infinity;
+            facs.forEach((f, i) => { const v = parseInt((routeMode === 'fast' ? f.fast : f.near)); if (v < bestVal) { bestVal = v; best = i; } });
+            return best;
+        }
+        document.querySelector('.route-toggle').addEventListener('click', e => {
+            const btn = e.target.closest('button'); if (!btn) return;
+            routeMode = btn.dataset.mode;
+            [...document.querySelectorAll('.route-toggle button')].forEach(b => b.classList.toggle('active', b === btn));
+            renderFacilities();
+        });
+
+        /* ---------------- connect / doctor view ---------------- */
+        document.querySelector('.switch-row').addEventListener('click', e => {
+            const btn = e.target.closest('button'); if (!btn) return;
+            role = btn.dataset.role;
+            [...document.querySelectorAll('.switch-row button')].forEach(b => b.classList.toggle('active', b === btn));
+            renderConnect();
+        });
+        function renderConnect() {
+            const card = document.getElementById('connectCard');
+            const last = symptomLog[symptomLog.length - 1];
+            if (role === 'patient') {
+                card.innerHTML = `<div class="summary-row"><span>Status</span><span>${last ? 'Sent to duty clinician' : 'No summary yet — talk to the Assistant first'}</span></div>
+                       <div class="summary-row"><span>Last update</span><span>${last ? last.at.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '—'}</span></div>
+                       <div class="summary-row"><span>Messages logged</span><span>${symptomLog.length}</span></div>`;
+            } else {
+                const urgency = symptomLog.some(s => s.urgency === 'high') ? 'High' : symptomLog.some(s => s.urgency === 'mid') ? 'Moderate' : symptomLog.length ? 'Low' : '—';
+                card.innerHTML = `<div class="summary-row"><span>Patient</span><span>${document.getElementById('userName').textContent}, demo record</span></div>
+                       <div class="summary-row"><span>Reported</span><span>${symptomLog.map(s => s.text).join('; ') || '—'}</span></div>
+                       <div class="summary-row"><span>Flagged urgency</span><span>${urgency}</span></div>
+                       <div class="summary-row"><span>Language</span><span>${lang.toUpperCase()}</span></div>
+                       <div class="summary-row"><span>Note</span><span style="max-width:180px;text-align:right;">AI-assembled summary — verify before acting.</span></div>`;
+            }
+        }
+
+        /* ---------------- init ---------------- */
+        addBotMsg(t('greetBot'));
+        applyI18n();
+        renderFacilities();
+        renderConnect();
+    </script>
+</body>
+
+</html>
