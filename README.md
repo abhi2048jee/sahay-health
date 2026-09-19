@@ -1,42 +1,11 @@
-# sahay-health
 SAHAY is an AI-guided rural healthcare navigation and triage platform designed for low-end feature phones, basic mobile networks, and multilingual users. Built with a focus on underserved, remote populations globally, SAHAY bridges the critical gap between the moment a health emergency arises and the arrival of professional clinical care.
-The Problem
 
- In remote and rural regions worldwide, patients face dangerous delays during medical emergencies. Traditional solutions fail because they assume:
+In remote and rural regions worldwide, patients face dangerous delays during medical emergencies. Traditional health tech solutions fail because they wrongly assume everyone has a high-end smartphone with fast 4G or 5G data, can download heavy apps from an app store, understands English or dense medical terminology, and can rely on direct-line maps that ignore real-world travel barriers like seasonal road washouts or hospital specializations.
 
-High-end smartphones and fast 4G/5G data connections.
+SAHAY solves these challenges by providing a lightweight experience that runs smoothly on budget devices without requiring app store installations or heavy data bandwidth. It features a conversational multilingual AI interface supporting regional languages like Hindi, Bengali, Tamil, Telugu, and English, allowing users to describe symptoms naturally in their native tongue.
 
-Complex app store downloads and heavy data packages.
+The platform operates under strict ethical guardrails to ensure safety, functioning strictly as a triage and navigation guide rather than a diagnostic tool. It never diagnoses conditions or prescribes medication, and every interaction explicitly concludes by routing the user to qualified professional care.
 
-English literacy and familiarity with dense medical terminology.
+To ensure reliability in life-threatening conditions, SAHAY integrates with satellite network capabilities so the smart navigation system works reliably during extreme weather or in remote dead zones where cellular towers fail. It also features instant emergency dispatch triggers and compiles a clean digital intake summary for clinicians, drastically cutting down waiting-room and triage delays.
 
-Direct-line maps that ignore real-world travel barriers (like seasonal road washouts or facility specializations).
-
-The Solution & Core Features
-
-SAHAY provides a lightweight, frictionless experience accessible via basic web views or lightweight networks:
-
-Low-End Phone & Offline Ready: Engineered to run smoothly on budget devices without requiring app store installations or heavy data bandwidth.
-
-Multilingual AI Triage: A conversational interface supporting multiple regional languages (such as Hindi, Bengali, Tamil, Telugu, and English) allowing users to describe symptoms in their native tongue.
-
-Strict Ethical Guardrails: SAHAY is explicitly a triage and navigation guide—it never diagnoses conditions, prescribes medication, or replaces a doctor. Every interaction concludes by routing the user to qualified professionals.
-
-Satellite Network Integration: Connects with satellite network capabilities to ensure all-weather reliability for the navigation system, even when local cellular towers fail during storms or extreme weather.
-
-Instant Emergency & Doctor Handoff: Provides one-tap emergency dispatch triggers and compiles a structured, concise digital intake summary for clinicians, drastically reducing waiting-room and triage delays.
-
-Technical Stack & Assets
-
-Frontend: Clean, responsive HTML5, CSS3, and JavaScript optimized for speed and low-resource devices.
-
-Included Assets:
-
-A fully interactive mobile app prototype featuring a live triage chat, multilingual toggle, and doctor console view.
-
-A complete 7-slide interactive pitch deck.
-
-An executive overview memorandum detailing market viability and architecture.
-
-Intent & Collaboration
-SAHAY is built as an open, high-impact concept ready for acquisition, incubation, or strategic collaboration with health-tech startups, NGOs, or mission-driven organizations looking to scale accessible public health infrastructure globally.
+The project is built using clean HTML5, CSS3, and JavaScript optimized for low-resource devices, and includes a fully interactive mobile app prototype, a 7-slide pitch deck, and an executive overview memo. SAHAY is currently open for acquisition, incubation, or strategic collaboration with health-tech startups or mission-driven organizations looking to scale accessible public health infrastructure globally.
